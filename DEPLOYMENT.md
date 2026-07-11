@@ -7,9 +7,11 @@ Pages as `index.html` on every push to `main` (or manually via the Actions tab
 
 ## One-time setup
 
-1. **Enable Pages**: the workflow attempts to enable it automatically. If the
-   first run fails, go to repo **Settings → Pages** and set **Source** to
-   **GitHub Actions**, then re-run the workflow.
+1. **Make the repository public**: GitHub Pages is only free on public
+   repositories. Go to **Settings → General → Danger Zone → Change repository
+   visibility → Make public**. (The repo contains no secrets — only the
+   website itself and UI boilerplate.) The workflow then enables Pages and
+   sets the custom domain automatically on its next run.
 
 2. **Point the domain at GitHub Pages** (at your DNS provider / registrar):
    - Apex `corniceadvisory.com` — add these `A` records:
@@ -24,9 +26,9 @@ Pages as `index.html` on every push to `main` (or manually via the Actions tab
      `13thomasben.github.io`
    - Remove the old Manus DNS records for these names first.
 
-3. **Set the custom domain**: in repo **Settings → Pages → Custom domain**,
-   enter `corniceadvisory.com`, save, and tick **Enforce HTTPS** once the
-   certificate is issued (usually within an hour of DNS propagating).
+3. **Enforce HTTPS**: the workflow sets the custom domain automatically. Once
+   DNS has propagated and the certificate is issued (usually within an hour),
+   tick **Enforce HTTPS** under **Settings → Pages**.
 
 Until DNS is switched, the site is reachable at
 `https://13thomasben.github.io/cornice-advisory/`.
