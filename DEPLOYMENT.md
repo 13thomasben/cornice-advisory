@@ -1,17 +1,19 @@
 # Deploying to GitHub Pages (free)
 
 The entire website is the self-contained static file `client/public/site.html`.
-The workflow in `.github/workflows/deploy-pages.yml` publishes it to GitHub
-Pages as `index.html` on every push to `main` (or manually via the Actions tab
-→ "Deploy to GitHub Pages" → Run workflow).
+The workflow in `.github/workflows/deploy-pages.yml` publishes it as
+`index.html` to the `gh-pages` branch on every push to `main` (or manually via
+the Actions tab → "Deploy to GitHub Pages" → Run workflow). GitHub Pages
+auto-enables for the `gh-pages` branch, and the `CNAME` file in it sets the
+custom domain — no settings access needed.
 
 ## One-time setup
 
 1. **Make the repository public**: GitHub Pages is only free on public
    repositories. Go to **Settings → General → Danger Zone → Change repository
    visibility → Make public**. (The repo contains no secrets — only the
-   website itself and UI boilerplate.) The workflow then enables Pages and
-   sets the custom domain automatically on its next run.
+   website itself and UI boilerplate.) The workflow's next run then deploys
+   the site and sets the custom domain automatically.
 
 2. **Point the domain at GitHub Pages** (at your DNS provider / registrar):
    - Apex `corniceadvisory.com` — add these `A` records:
